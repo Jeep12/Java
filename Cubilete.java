@@ -1,34 +1,31 @@
 
 public class Cubilete {
-	Dado d1;
-	Dado d2;
+	private int cantDados;
+
+	Dado[] dados;
+
+	public Cubilete(int cantDados, int cantCaras) {
+		dados = new Dado[2];
+		for (int i = 0; i < 2; i++) {
+			dados[i] = new Dado(6);
+		}
+	}
 	
-	public Cubilete () {
-		d1 = new Dado(6);
-		d2 = new Dado(6);
-	}
-	public Cubilete (int cantidadLados) {
-		d1 = new Dado(cantidadLados);
-		d2 = new Dado(cantidadLados);
-	}
-	public Dado getD1() {
-		return d1;
-	}
-	public void setD1(Dado d1) {
-		this.d1 = d1;
-	}
-	public Dado getD2() {
-		return d2;
-	}
-	public void setD2(Dado d2) {
-		this.d2 = d2;
-	}
 	public int tirar() {
-		return d1.tirar() + d2.tirar();
+		int suma = 0;
+		for (int i = 0; i < cantDados; i++) {
+			suma += dados[i].tirar();
+			System.out.println(dados[i].tirar() );
+		}
+		return suma;
 	}
-	public int ultimaTirada () {
-		return d1.getUltimoValor() + d2.getUltimoValor();
+
+	public int ultimaTirada() {
+		int suma = 0;
+		for (int i = 0; i < cantDados; i++) {
+			suma = dados[i].getUltimoValor();
+		}
+		return suma;
 	}
-	
-	
+
 }

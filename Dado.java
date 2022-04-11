@@ -22,7 +22,8 @@ public class Dado {
 		ultimoValor = tirada;
 		return tirada;
 	}
-	public int getUltimoValor () {
+
+	public int getUltimoValor() {
 		return ultimoValor;
 	}
 }

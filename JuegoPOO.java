@@ -7,21 +7,20 @@ public class JuegoPOO {
 	private Jugador jug2;
 
 	private Cubilete cubil;
-	
 
 	private int rondas = 10;
 
 	public JuegoPOO() {
 		jug1 = new Jugador("Jugador 1");
 		jug2 = new Jugador("Jugador 2");
-		cubil = new Cubilete (6);
+		cubil = new Cubilete(2, 6);
 
 	}
 
 	public JuegoPOO(Jugador j1, Jugador j2) {
 		jug1 = j1;
 		jug2 = j2;
-		cubil = new Cubilete (6);
+		cubil = new Cubilete(2, 6);
 
 	}
 
@@ -29,7 +28,7 @@ public class JuegoPOO {
 		jug1 = j1;
 		jug2 = j2;
 
-		cubil = new Cubilete (CantidadLados);
+		cubil = new Cubilete(2, CantidadLados);
 
 	}
 
@@ -37,8 +36,8 @@ public class JuegoPOO {
 		// Una constante en codigo solo se puede cambiar si compilamos el codigo denuevo
 		for (int i = 0; i < rondas; i++) {
 
-			int puntos1 = jug1.tirarDados(cubil.getD1(),cubil.getD2());
-			int puntos2 = jug2.tirarDados(cubil.getD1(),cubil.getD2());
+			int puntos1 = jug1.tirarCubilete();
+			int puntos2 = jug2.tirarCubilete();
 
 			if (puntos1 > 7 && puntos1 > puntos2) {
 				jug1.incrementarPuntos();
@@ -75,14 +74,13 @@ public class JuegoPOO {
 	}
 
 	public static void main(String[] args) {
-	
+
 		Jugador j1 = new Jugador("Juan");
 		Jugador j2 = new Jugador("Java");
-		
-		JuegoPOO juego = new JuegoPOO(j1, j2);
+		JuegoPOO juego = new JuegoPOO(j1, j2,6);
 		juego.jugar();
-		System.out.println("El jugador: "+j1.getNombre() +"  "+ j1.getPuntos() + " puntos");
-		System.out.println("El jugador: " + j2.getNombre() +"  "+ j2.getPuntos() + " puntos");
+		System.out.println("El jugador: " + j1.getNombre() + "  " + j1.getPuntos() + " puntos");
+		System.out.println("El jugador: " + j2.getNombre() + "  " + j2.getPuntos() + " puntos");
 
 	}
 }
