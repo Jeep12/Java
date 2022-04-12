@@ -1,21 +1,22 @@
 
 public class Cubilete {
 	private int cantDados;
-
+	private int cantCaras;
 	Dado[] dados;
 
-	public Cubilete(int cantDados, int cantCaras) {
-		dados = new Dado[2];
-		for (int i = 0; i < 2; i++) {
-			dados[i] = new Dado(6);
+	public Cubilete( int cantCaras,int cantDados) {
+		this.cantDados = cantDados;
+		this.cantCaras = cantCaras;
+		dados = new Dado[cantDados];
+		for (int i = 0; i < cantDados; i++) {
+			dados[i] = new Dado(cantCaras);
 		}
 	}
-	
+
 	public int tirar() {
 		int suma = 0;
 		for (int i = 0; i < cantDados; i++) {
 			suma += dados[i].tirar();
-			System.out.println(dados[i].tirar() );
 		}
 		return suma;
 	}

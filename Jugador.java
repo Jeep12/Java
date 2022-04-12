@@ -2,7 +2,6 @@
 public class Jugador {
 	private String nombre;
 	private int puntos;
-	private Cubilete cubil;
 
 	public Jugador(String nombre) {
 		if (nombre != null) {
@@ -12,7 +11,6 @@ public class Jugador {
 			this.nombre = "Sin nombre";
 		}
 		puntos = 0;
-		cubil = new Cubilete(2,6);
 
 	}
 
@@ -27,10 +25,9 @@ public class Jugador {
 	// Llamo desde JuegoPOO a esta funcion y le paso como parametro el objeto Dado
 	// que tiene la funcion
 	// Math Random "Tirar"
-	public int tirarCubilete() {
-		int tirada = cubil.tirar();
-		System.out.println("Entro a tirar de jugador, valor tirada:" + tirada);
-		return tirada;
+	public int tirarCubilete(Cubilete cubil) {
+		
+		return cubil.tirar();
 	}
 
 	public int getPuntos() {
